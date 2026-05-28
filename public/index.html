@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatos de compañía</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header-principal">
+        <div class="brand">
+            <img src="logo.png" alt="Logo de Gatos de compañía" class="logo">
+
+            <div class="brand-texto">
+                <h1>Gatos de compañía</h1>
+                <p>Compañía felina para estudiar y bajar la ansiedad</p>
+            </div>
+        </div>
+
+        <nav class="nav-principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <section id="inicio" class="hero">
+            <div class="hero-texto">
+                <span class="etiqueta">Proyecto Web con Node.js</span>
+
+                <h2>Gatos de compañía en todo Chile</h2>
+
+                <p>
+                    Una página pensada para ofrecer compañía felina, humor y calma a estudiantes
+                    que necesitan una pausa entre clases, tareas y proyectos.
+                </p>
+
+                <a href="#servicios" class="boton-enlace">Ver servicios</a>
+            </div>
+
+            <div class="hero-imagen">
+                <img 
+                    src="https://us.123rf.com/450wm/lustreart/lustreart2207/lustreart220700148/188285173-collage-de-arte-contempor%C3%A1neo-imagen-conceptual-con-gato-y-globo-terr%C3%A1queo-salvar-el-medio.jpg?ver=6"
+                    alt="Gato creativo">
+            </div>
+        </section>
+
+        <section id="servicios" class="servicios">
+            <div class="encabezado-seccion">
+                <h2 class="subtitulo">Servicios Divinos</h2>
+                <p>
+                    Servicios simbólicos para gatos dramáticos, humanos cansados y estudiantes
+                    que necesitan un momento de calma.
+                </p>
+            </div>
+
+            <div class="grupo-servicios">
+
+                <article class="tarjeta-servicio">
+                    <div class="icono-servicio">🙏</div>
+                    <h3>Misas de las 7 vidas</h3>
+                    <p>
+                        Celebraciones especiales para felinos pecadores que arañaron el sillón,
+                        rompieron una planta o mordieron sin previo aviso.
+                    </p>
+                </article>
+
+                <article class="tarjeta-servicio">
+                    <div class="icono-servicio">🐟</div>
+                    <h3>Bendición de croquetas</h3>
+                    <p>
+                        Se multiplican misteriosamente, aunque casi siempre desaparecen
+                        por obra y gracia del michi.
+                    </p>
+                </article>
+
+                <article class="tarjeta-servicio">
+                    <div class="icono-servicio">😼</div>
+                    <h3>Confesión de travesuras</h3>
+                    <p>
+                        “Padre, maullé. He pecado. Tiré el vaso al suelo solo porque sí”.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="login" class="bloque-formulario">
+            <div class="texto-formulario">
+                <span class="etiqueta">Cookies</span>
+                <h2>Inicio de sesión</h2>
+                <p>
+                    Este formulario permite probar el inicio de sesión usando Node.js,
+                    Express y cookies.
+                </p>
+
+                <div class="dato-prueba">
+                    <p><strong>Usuario:</strong> admin</p>
+                    <p><strong>Clave:</strong> 1234</p>
+                </div>
+            </div>
+
+            <form action="/login" method="POST" class="formulario">
+                <div class="campo">
+                    <label for="usuario">Nombre de usuario</label>
+                    <input 
+                        type="text" 
+                        id="usuario" 
+                        name="usuario" 
+                        placeholder="Ingresa tu usuario" 
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="clave">Clave</label>
+                    <input 
+                        type="password" 
+                        id="clave" 
+                        name="clave" 
+                        placeholder="Ingresa tu clave" 
+                        required>
+                </div>
+
+                <button type="submit">Ingresar</button>
+            </form>
+        </section>
+
+        <section id="contacto" class="bloque-formulario">
+            <div class="texto-formulario">
+                <span class="etiqueta">Formulario</span>
+                <h2>Contacto</h2>
+                <p>
+                    Este formulario envía datos al servidor mediante el método POST.
+                    Sirve para probar la comunicación entre el HTML y Node.js.
+                </p>
+            </div>
+
+            <form action="/enviar" method="POST" class="formulario">
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Nombre" 
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="apellido">Apellido</label>
+                    <input 
+                        type="text" 
+                        id="apellido" 
+                        name="apellido" 
+                        placeholder="Apellido" 
+                        required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="email">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="correo@ejemplo.com" 
+                        required>
+                </div>
+
+                <div class="campo campo-completo">
+                    <label for="comentario">Comentario</label>
+                    <textarea 
+                        id="comentario" 
+                        name="comentario" 
+                        placeholder="Escribe tu comentario aquí"></textarea>
+                </div>
+
+                <button type="submit">Enviar al servidor</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Programación Web IP Santo Tomás | Liin Corp.</p>
+    </footer>
+
+</body>
+
+</html>

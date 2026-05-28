@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Verdana, sans-serif;
+    color: #2c3e50;
+    background-color: #ea4bff7c;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+.header-principal {
+    color: white;
+    padding: 22px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand .logo {
+    height: 58px;
+    width: 58px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+    padding: 4px;
+}
+
+.brand h1 {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.brand p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.nav-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-principal a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-principal a:hover {
+    background-color: white;
+    color: #2c3e50;
+}
+
+/* CONTENEDOR */
+
+.contenedor-principal {
+    width: min(1100px, calc(100% - 32px));
+    margin: 20px auto 35px;
+    padding: 26px;
+    background-color: white;
+    border-radius: 18px;
+    border: 1px solid #e1e4e8;
+    flex: 1;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 30px;
+    padding: 35px;
+    background-color: #eef2f7;
+    border-radius: 16px;
+    margin-bottom: 35px;
+}
+
+.hero-texto h2 {
+    font-size: 34px;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.hero-texto p {
+    margin-bottom: 22px;
+}
+
+.etiqueta {
+    display: inline-block;
+    background-color: white;
+    color: #2c3e50;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.boton-enlace {
+    display: inline-block;
+    background-color: #2c3e50;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-enlace:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.hero-imagen {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-imagen img {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* SERVICIOS */
+
+.servicios {
+    margin-bottom: 35px;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 24px;
+}
+
+.subtitulo {
+    color: black;
+    text-shadow:
+        0 0 5px rgb(230, 15, 140),
+        0 0 10px rgb(230, 15, 140),
+        0 0 20px rgb(230, 15, 140),
+        0 0 40px rgb(230, 15, 140),
+        0 0 80px rgb(230, 15, 140);
+    font-size: 28px;
+    text-align: center;
+    padding: 10px;
+}
+
+.grupo-servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.tarjeta-servicio {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-4px);
+}
+
+.icono-servicio {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.tarjeta-servicio h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* FORMULARIOS */
+
+.bloque-formulario {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 25px;
+    align-items: start;
+    padding: 28px;
+    margin-bottom: 28px;
+    background-color: #eef2f7;
+    border-radius: 16px;
+    border: 1px solid #e1e4e8;
+}
+
+.texto-formulario h2 {
+    margin: 10px 0;
+    font-size: 26px;
+    color: #2c3e50;
+}
+
+.texto-formulario p {
+    margin-bottom: 12px;
+}
+
+.dato-prueba {
+    background-color: white;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+}
+
+.formulario {
+    background-color: white;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd1d6;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: rgb(230, 15, 140);
+    box-shadow: 0 0 0 3px rgba(230, 15, 140, 0.12);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+button {
+    grid-column: 1 / -1;
+    border: none;
+    background-color: #2c3e50;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* FOOTER */
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 18px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+
+    .header-principal {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px;
+    }
+
+    .brand {
+        flex-direction: column;
+    }
+
+    .nav-principal ul {
+        justify-content: center;
+    }
+
+    .hero,
+    .bloque-formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .grupo-servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .hero-texto h2 {
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 480px) {
+
+    .contenedor-principal {
+        width: calc(100% - 20px);
+        padding: 16px;
+    }
+
+    .bloque-formulario {
+        padding: 18px;
+    }
+
+    .hero {
+        padding: 18px;
+    }
+
+    .nav-principal a {
+        padding: 6px 9px;
+        font-size: 13px;
+    }
+}
