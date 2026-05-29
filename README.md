@@ -45,5 +45,5 @@ NEKOBRELLA CORPORATION es un proyecto de ejemplo que simula un sistema interno d
 - Al registrar una propuesta exitosa se crea la cookie `tokenSesion` con valor `ST-777`.
 - No existe persistencia en base de datos; las propuestas se registran en consola mediante `services/ideaService.js`.
 
-## Autor
+## Semana
 - Actividad Semana 8 - Programación Web
