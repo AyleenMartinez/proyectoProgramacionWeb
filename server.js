@@ -1,85 +1,26 @@
-// 1. Importar las bibliotecas necesarias
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
-// 2. Crear la aplicación de Express
-const app = express();
+const authRoutes = require('./routes/authRoutes');
+const reporteRoutes = require('./routes/reporteRoutes');
+const ideaRoutes = require('./routes/ideaRoutes');
+const logger = require('./middlewares/logger');
 
-// 3. Definir el puerto
+const app = express();
 const PORT = 3000;
 
-// 4. Configurar middlewares
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(logger);
 
-// 5. Ruta para recibir formulario de contacto
-app.post('/enviar', (req, res) => {
-    const { nombre, apellido, email, comentario } = req.body;
+app.use(authRoutes);
+app.use(reporteRoutes);
+app.use(ideaRoutes);
 
-    console.log('Formulario de contacto recibido:');
-    console.log(`Nombre: ${nombre} ${apellido}`);
-    console.log(`Correo: ${email}`);
-    console.log(`Comentario: ${comentario}`);
-
-    res.send(`
-        <h1>Gracias ${nombre}</h1>
-        <p>Tu comentario fue recibido correctamente en el servidor.</p>
-        <a href="/">Volver al inicio</a>
-    `);
-});
-
-// 6. Ruta para login con cookie
-app.post('/login', (req, res) => {
-    const { usuario, clave } = req.body;
-
-    // Primero validamos que el usuario y la clave sean correctos
-    if (usuario !== 'admin' || clave !== '1234') {
-        return res.send(`
-            <h1>Error de inicio de sesión</h1>
-            <p>Usuario o contraseña incorrectos.</p>
-            <a href="/">Volver a intentar</a>
-        `);
-    }
-
-    // Si los datos son correctos y ya existe la cookie
-    if (req.cookies.miGalleta === 'true') {
-        return res.send(`
-            <h1>Bienvenido de nuevo, Admin</h1>
-            <p>Tu navegador ya tenía una cookie guardada, por eso el servidor recordó tu sesión.</p>
-            <a href="/">Volver al inicio</a>
-        `);
-    }
-
-    // Si los datos son correctos y no existe la cookie, la creamos
-    res.cookie('miGalleta', 'true', {
-        maxAge: 3600000,
-        httpOnly: true
-    });
-
-    res.send(`
-        <h1>Bienvenido por primera vez, Admin</h1>
-        <p>Se guardó una cookie en tu navegador.</p>
-        <a href="/">Volver al inicio</a>
-    `);
-});
-
-// 7. Ruta para cerrar sesión y borrar la cookie
-app.get('/cerrar-sesion', (req, res) => {
-    res.clearCookie('miGalleta');
-
-    res.send(`
-        <h1>Sesión cerrada</h1>
-        <p>La cookie fue eliminada correctamente.</p>
-        <a href="/">Volver al inicio</a>
-    `);
-});
-
-// 8. Iniciar servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en: http://localhost:${PORT}`);
-    console.log('Presiona Ctrl + C para detener el servidor.');
+    console.log(`Servidor NEKOBRELLA CORPORATION activo en: http://localhost:${PORT}`);
 });
 
 
