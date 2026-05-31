@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#0a0a0a"/>
+  <rect x="10" y="10" width="580" height="380" fill="none" stroke="#d32f2f" stroke-width="2" rx="8"/>
+  <text x="300" y="80" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#ffb3b3">CONTENCIÓN</text>
+  <text x="300" y="115" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#ffb3b3">BIOLÓGICA</text>
+  <rect x="220" y="180" width="160" height="120" fill="none" stroke="#d32f2f" stroke-width="2" rx="4"/>
+  <rect x="215" y="175" width="170" height="130" fill="none" stroke="#d32f2f" stroke-width="1" rx="4" opacity="0.5"/>
+  <line x1="250" y1="190" x2="350" y2="190" stroke="#d32f2f" stroke-width="1" opacity="0.4"/>
+  <line x1="250" y1="210" x2="350" y2="210" stroke="#d32f2f" stroke-width="1" opacity="0.4"/>
+  <line x1="250" y1="230" x2="350" y2="230" stroke="#d32f2f" stroke-width="1" opacity="0.4"/>
+  <text x="300" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#9ea3b1">Aislamiento • Seguridad • Manejo</text>
+</svg>

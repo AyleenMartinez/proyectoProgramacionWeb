@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte - NEKOBRELLA CORPORATION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header-principal">
+        <div class="brand">
+            <div class="brand-logo" aria-hidden="true">N</div>
+            <div class="brand-texto">
+                <p class="brand-pretitle">NEKOBRELLA CORPORATION</p>
+                <h1>División de Investigación Felina Avanzada</h1>
+            </div>
+        </div>
+
+        <nav class="nav-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="sujetos.html">Sujetos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="reporte.html">Reporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section id="reporte" class="bloque-formulario" aria-labelledby="reporte-title">
+            <div class="form-header">
+                <span class="form-label">Reporte de incidente biológico</span>
+                <h2 id="reporte-title">Enviar reporte de incidente</h2>
+                <p>Documente el incidente, la ubicación y el comportamiento observado para el equipo de respuesta.</p>
+            </div>
+            <div class="reporte-visual">
+                <div class="reporte-imagen">
+                    <img src="img/biohazard-report.svg" alt="Sistema de reporte de incidentes BIOHAZARD" class="reporte-img">
+                </div>
+            </div>
+            <div class="warning-box">
+                <p class="warning-title">BIOHAZARD REPORT SYSTEM</p>
+                <p>INCIDENTE CLASIFICADO: active la traza de contención y envíe el reporte bajo cadena de custodia segura.</p>
+            </div>
+            <form action="/enviar" method="POST" class="formulario">
+                <div class="campo">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="correo@nekobrella.local" required>
+                </div>
+                <div class="campo campo-completo">
+                    <label for="comentario">Comentario</label>
+                    <textarea id="comentario" name="comentario" placeholder="Detalle el incidente biológico observado" required></textarea>
+                </div>
+                <button type="submit" class="boton-envio boton-rojo">Enviar reporte</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>NEKOBRELLA CORPORATION · División de Investigación Felina Avanzada · © 2026</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

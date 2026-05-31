@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#grad1)"/>
+  <rect x="20" y="20" width="760" height="360" fill="none" stroke="#d32f2f" stroke-width="2" rx="12"/>
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#ffb3b3">LABORATORIO FELINO</text>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#9ea3b1">NEKOBRELLA CORPORATION</text>
+  <circle cx="200" cy="250" r="60" fill="none" stroke="#d32f2f" stroke-width="2"/>
+  <circle cx="200" cy="250" r="50" fill="rgba(211, 47, 47, 0.1)"/>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ffbfbf">LAB</text>
+  <circle cx="600" cy="250" r="60" fill="none" stroke="#d32f2f" stroke-width="2"/>
+  <circle cx="600" cy="250" r="50" fill="rgba(211, 47, 47, 0.1)"/>
+  <text x="600" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ffbfbf">BIOLAB</text>
+  <line x1="40" y1="350" x2="760" y2="350" stroke="#d32f2f" stroke-width="1" opacity="0.5"/>
+</svg>

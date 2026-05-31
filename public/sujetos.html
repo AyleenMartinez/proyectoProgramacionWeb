@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujetos - NEKOBRELLA CORPORATION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header-principal">
+        <div class="brand">
+            <div class="brand-logo" aria-hidden="true">N</div>
+            <div class="brand-texto">
+                <p class="brand-pretitle">NEKOBRELLA CORPORATION</p>
+                <h1>División de Investigación Felina Avanzada</h1>
+            </div>
+        </div>
+
+        <nav class="nav-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="sujetos.html">Sujetos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="reporte.html">Reporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section id="sujetos" class="sujetos" aria-labelledby="sujetos-title">
+            <div class="section-header">
+                <p class="section-label">Sujetos</p>
+                <h2 id="sujetos-title">Sujetos experimentales</h2>
+                <p>Monitoreo actualizado de los principales sujetos bajo custodia de NEKOBRELLA.</p>
+            </div>
+            <div class="sujetos-grid">
+                <article class="sujeto-card sujeto-alto">
+                    <div class="sujeto-imagen">
+                        <img src="img/sujeto-m01.svg" alt="Subject M-01 Naranjo" class="sujeto-img">
+                    </div>
+                    <div class="sujeto-top">
+                        <div>
+                            <p class="sujeto-id">SUBJECT M-01</p>
+                            <h3>Naranjo</h3>
+                        </div>
+                        <span class="estado-badge alto">Alto</span>
+                    </div>
+                    <div class="sujeto-lineas">
+                        <span>ÁREA: Celda 7</span>
+                        <span>FÓRMULA: GEN-X</span>
+                    </div>
+                    <p class="sujeto-desc">Nivel de amenaza alto con pulsos bioeléctricos inestables y aislamiento reforzado.</p>
+                    <div class="sujeto-status"><strong>Estado:</strong> Inestable</div>
+                </article>
+                <article class="sujeto-card sujeto-medio">
+                    <div class="sujeto-imagen">
+                        <img src="img/sujeto-m07.svg" alt="Subject M-07 Michi táctico" class="sujeto-img">
+                    </div>
+                    <div class="sujeto-top">
+                        <div>
+                            <p class="sujeto-id">SUBJECT M-07</p>
+                            <h3>Michi táctico</h3>
+                        </div>
+                        <span class="estado-badge medio">Medio</span>
+                    </div>
+                    <div class="sujeto-lineas">
+                        <span>ÁREA: Torres de vigilancia</span>
+                        <span>FÓRMULA: SENS-2</span>
+                    </div>
+                    <p class="sujeto-desc">Observación continua de comportamiento táctico con interacción limitada por protocolo.</p>
+                    <div class="sujeto-status"><strong>Estado:</strong> En observación</div>
+                </article>
+                <article class="sujeto-card sujeto-critico">
+                    <div class="sujeto-imagen">
+                        <img src="img/sujeto-m13.svg" alt="Subject M-13 Entidad de pasillo" class="sujeto-img">
+                    </div>
+                    <div class="sujeto-top">
+                        <div>
+                            <p class="sujeto-id">SUBJECT M-13</p>
+                            <h3>Entidad de pasillo</h3>
+                        </div>
+                        <span class="estado-badge critico">Crítico</span>
+                    </div>
+                    <div class="sujeto-lineas">
+                        <span>ÁREA: Lab. Fallido</span>
+                        <span>FÓRMULA: BIO-9</span>
+                    </div>
+                    <p class="sujeto-desc">Fuga parcial confirmada con actividad paranormal y señales de contención comprometida.</p>
+                    <div class="sujeto-status"><strong>Estado:</strong> Fuga parcial</div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>NEKOBRELLA CORPORATION · División de Investigación Felina Avanzada · © 2026</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -20,11 +20,11 @@
 
         <nav class="nav-principal" aria-label="Navegación principal">
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#sujetos">Sujetos</a></li>
-                <li><a href="#login">Login</a></li>
-                <li><a href="#reporte">Reporte</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="sujetos.html">Sujetos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="reporte.html">Reporte</a></li>
             </ul>
         </nav>
     </header>
@@ -36,12 +36,35 @@
                 <h2 id="hero-title">Acceso restringido al personal autorizado</h2>
                 <p>Bienvenido a NEKOBRELLA CORPORATION. Este panel es una plataforma de control para la supervisión de sujetos experimentales felinos y operaciones de contención.</p>
                 <div class="hero-actions">
-                    <a href="#login" class="boton-prioritario">Ir a Login</a>
-                    <a href="#reporte" class="boton-secundario">Ver reporte</a>
+                    <a href="login.html" class="boton-prioritario">Ir a Login</a>
+                    <a href="reporte.html" class="boton-secundario">Ver reporte</a>
                 </div>
             </div>
             <div class="hero-panel">
                 <div class="panel-tag">RESTRICTED</div>
+                <div class="hero-imagen">
+                    <img src="img/laboratorio-felino.svg" alt="Panel de laboratorio felino NEKOBRELLA" class="hero-img">
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-head">
+                        <span>NEKO-BIOHAZARD STATUS</span>
+                        <span class="status-pill">CONTENCIÓN ACTIVA</span>
+                    </div>
+                    <div class="monitor-line">
+                        <div class="monitor-label">SUBJECT</div>
+                        <div class="monitor-value">M-13</div>
+                    </div>
+                    <div class="monitor-graph">
+                        <div class="monitor-bar">
+                            <div class="monitor-bar-fill" style="width: 76%"></div>
+                        </div>
+                        <div class="monitor-note">INTEGRITY 76%</div>
+                    </div>
+                    <div class="monitor-data">
+                        <span>DATA CHAIN: ████ ██:34 UTC</span>
+                        <span>SCAN: 88% | ALERTAS: 02 | ACCESO: SELLO ROJO</span>
+                    </div>
+                </div>
                 <div class="panel-copy">
                     <p><strong>Unidad:</strong> Investigación Genética y Contención</p>
                     <p><strong>Estado:</strong> Operativo</p>
@@ -53,134 +76,84 @@
             </div>
         </section>
 
-        <section id="servicios" class="servicios" aria-labelledby="servicios-title">
+        <section id="panel-monitoreo" class="panel-monitoreo" aria-labelledby="panel-monitoreo-title">
             <div class="section-header">
-                <p class="section-label">Servicios</p>
-                <h2 id="servicios-title">Capacidades internas</h2>
-                <p>Operaciones enfocadas en investigación avanzada, contención y análisis de comportamiento en sujetos felinos.</p>
+                <p class="section-label">Panel de monitoreo</p>
+                <h2 id="panel-monitoreo-title">Dashboard interno</h2>
+                <p>Estado en tiempo real de los sujetos, alertas y archivos clasificados del sistema de contención.</p>
             </div>
-            <div class="cards-grid">
-                <article class="servicio-card">
-                    <h3>Investigación genética felina</h3>
-                    <p>Desarrollo de perfiles genéticos, edición controlada y análisis molecular de especies felinas.</p>
+            <div class="monitor-grid">
+                <article class="monitor-summary monitor-summary-alerta">
+                    <p class="monitor-summary-label">Nivel global</p>
+                    <h3>Alerta roja</h3>
+                    <p>Contención reforzada. Activar el protocolo de respuesta inmediata.</p>
                 </article>
-                <article class="servicio-card">
-                    <h3>Contención biológica</h3>
-                    <p>Protocolos de aislamiento, barreras de seguridad y manejo seguro de sujetos con niveles de amenaza elevados.</p>
+                <article class="monitor-summary">
+                    <p class="monitor-summary-label">Sujetos activos</p>
+                    <h3>3 activos</h3>
+                    <p>Monitoreo constante en el sistema de vigilancia interna.</p>
                 </article>
-                <article class="servicio-card">
-                    <h3>Neurocomportamiento michi</h3>
-                    <p>Estudios de conducta, respuestas a estímulos y adaptación de sujetos a entornos experimentales.</p>
+                <article class="monitor-summary">
+                    <p class="monitor-summary-label">Fugas</p>
+                    <h3>1 fuga parcial</h3>
+                    <p>El equipo de contención ya se encuentra en ruta de intervención.</p>
                 </article>
+                <article class="monitor-summary">
+                    <p class="monitor-summary-label">Reportes archivados</p>
+                    <h3>7 documentos</h3>
+                    <p>Incidentes clasificados almacenados en la base de datos segura.</p>
+                </article>
+            </div>
+            <div class="monitor-visual">
+                <div class="monitor-display">
+                    <div class="monitor-display-header">
+                        <span>BIOMETRIC MONITOR</span>
+                        <span class="monitor-display-badge">SISTEMA INTERNO</span>
+                    </div>
+                    <div class="monitor-data-row">
+                        <span>SUBJECTS ONLINE</span>
+                        <strong>3 / 4</strong>
+                    </div>
+                    <div class="monitor-data-row">
+                        <span>FUGAS DETECTADAS</span>
+                        <strong>1</strong>
+                    </div>
+                    <div class="monitor-data-row">
+                        <span>REPORTES PENDIENTES</span>
+                        <strong>7</strong>
+                    </div>
+                    <div class="monitor-status">
+                        <span>ESTADO</span>
+                        <strong>ALERTA ROJA</strong>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="sujetos" class="sujetos" aria-labelledby="sujetos-title">
-            <div class="section-header">
-                <p class="section-label">Sujetos</p>
-                <h2 id="sujetos-title">Sujetos experimentales</h2>
-                <p>Monitoreo actualizado de los principales sujetos bajo custodia de NEKOBRELLA.</p>
+        <section class="section-links" aria-labelledby="links-title">
+            <h2 id="links-title">Acceso rápido</h2>
+            <div class="quick-links">
+                <a href="servicios.html" class="quick-link-card">
+                    <h3>Servicios</h3>
+                    <p>Capacidades internas de investigación</p>
+                </a>
+                <a href="sujetos.html" class="quick-link-card">
+                    <h3>Sujetos</h3>
+                    <p>Monitoreo de sujetos experimentales</p>
+                </a>
+                <a href="registro.html" class="quick-link-card">
+                    <h3>Registro</h3>
+                    <p>Propuestas experimentales</p>
+                </a>
             </div>
-            <div class="sujetos-grid">
-                <article class="sujeto-card sujeto-alto">
-                    <p class="sujeto-id">SUBJECT M-01</p>
-                    <h3>Naranjo</h3>
-                    <p><strong>Nivel de amenaza:</strong> Alto</p>
-                    <p><strong>Estado:</strong> Inestable</p>
-                </article>
-                <article class="sujeto-card sujeto-medio">
-                    <p class="sujeto-id">SUBJECT M-07</p>
-                    <h3>Michi táctico</h3>
-                    <p><strong>Nivel de amenaza:</strong> Medio</p>
-                    <p><strong>Estado:</strong> En observación</p>
-                </article>
-                <article class="sujeto-card sujeto-critico">
-                    <p class="sujeto-id">SUBJECT M-13</p>
-                    <h3>Entidad de pasillo</h3>
-                    <p><strong>Nivel de amenaza:</strong> Crítico</p>
-                    <p><strong>Estado:</strong> Fuga parcial</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="registro-idea" class="bloque-formulario" aria-labelledby="registro-idea-title">
-            <div class="form-header">
-                <span class="form-label">Registro de propuesta experimental</span>
-                <h2 id="registro-idea-title">Registro de propuesta experimental</h2>
-                <p>Ingrese la propuesta experimental para revisión interna. Mantenga la información precisa.</p>
-            </div>
-            <form action="/registrar-idea" method="POST" class="formulario">
-                <div class="campo">
-                    <label for="nombre">Nombre del investigador</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="campo">
-                    <label for="departamento">Departamento</label>
-                    <select id="departamento" name="departamento" required>
-                        <option value="Bioseguridad">Bioseguridad</option>
-                        <option value="Informática">Informática</option>
-                        <option value="Contención">Contención</option>
-                        <option value="Investigación Felina">Investigación Felina</option>
-                    </select>
-                </div>
-                <div class="campo campo-completo">
-                    <label for="idea">Idea experimental</label>
-                    <textarea id="idea" name="idea" placeholder="Describa la propuesta experimental" required></textarea>
-                </div>
-                <button type="submit" class="boton-envio boton-prioritario">Registrar propuesta</button>
-            </form>
-        </section>
-
-        <section id="login" class="bloque-formulario" aria-labelledby="login-title">
-            <div class="form-header">
-                <span class="form-label">Acceso seguro</span>
-                <h2 id="login-title">Acceso restringido al personal autorizado</h2>
-                <p>Introduzca credenciales de usuario interno para continuar con la supervisión de la plataforma.</p>
-            </div>
-            <form action="/login" method="POST" class="formulario">
-                <div class="campo">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
-                </div>
-                <div class="campo">
-                    <label for="clave">Clave</label>
-                    <input type="password" id="clave" name="clave" placeholder="Clave de acceso" required>
-                </div>
-                <button type="submit" class="boton-envio">Ingresar</button>
-            </form>
-        </section>
-
-        <section id="reporte" class="bloque-formulario" aria-labelledby="reporte-title">
-            <div class="form-header">
-                <span class="form-label">Reporte de incidente biológico</span>
-                <h2 id="reporte-title">Enviar reporte de incidente</h2>
-                <p>Documente el incidente, la ubicación y el comportamiento observado para el equipo de respuesta.</p>
-            </div>
-            <form action="/enviar" method="POST" class="formulario">
-                <div class="campo">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="campo">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-                </div>
-                <div class="campo">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="correo@nekobrella.local" required>
-                </div>
-                <div class="campo campo-completo">
-                    <label for="comentario">Comentario</label>
-                    <textarea id="comentario" name="comentario" placeholder="Detalle el incidente biológico observado" required></textarea>
-                </div>
-                <button type="submit" class="boton-envio boton-rojo">Enviar reporte</button>
-            </form>
         </section>
     </main>
 
     <footer>
         <p>NEKOBRELLA CORPORATION · División de Investigación Felina Avanzada · © 2026</p>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 
 </html>

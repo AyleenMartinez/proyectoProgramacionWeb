@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <rect x="5" y="5" width="390" height="290" fill="none" stroke="#d32f2f" stroke-width="2" rx="6"/>
+  <circle cx="200" cy="130" r="80" fill="none" stroke="#d32f2f" stroke-width="2"/>
+  <circle cx="200" cy="130" r="70" fill="rgba(211, 47, 47, 0.12)"/>
+  <circle cx="170" cy="110" r="12" fill="#ffbfbf"/>
+  <circle cx="230" cy="110" r="12" fill="#ffbfbf"/>
+  <path d="M180 150 Q200 165 220 150" fill="none" stroke="#ffbfbf" stroke-width="2"/>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffb3b3">M-01 NARANJO</text>
+</svg>

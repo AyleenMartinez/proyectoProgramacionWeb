@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NEKOBRELLA CORPORATION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header-principal">
+        <div class="brand">
+            <div class="brand-logo" aria-hidden="true">N</div>
+            <div class="brand-texto">
+                <p class="brand-pretitle">NEKOBRELLA CORPORATION</p>
+                <h1>División de Investigación Felina Avanzada</h1>
+            </div>
+        </div>
+
+        <nav class="nav-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="sujetos.html">Sujetos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="reporte.html">Reporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-principal">
+        <section id="login" class="bloque-formulario" aria-labelledby="login-title">
+            <div class="form-header">
+                <span class="form-label">Acceso seguro</span>
+                <h2 id="login-title">Acceso restringido al personal autorizado</h2>
+                <p>Introduzca credenciales de usuario interno para continuar con la supervisión de la plataforma.</p>
+            </div>
+            <form action="/login" method="POST" class="formulario">
+                <div class="campo">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
+                </div>
+                <div class="campo">
+                    <label for="clave">Clave</label>
+                    <input type="password" id="clave" name="clave" placeholder="Clave de acceso" required>
+                </div>
+                <button type="submit" class="boton-envio">Ingresar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>NEKOBRELLA CORPORATION · División de Investigación Felina Avanzada · © 2026</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

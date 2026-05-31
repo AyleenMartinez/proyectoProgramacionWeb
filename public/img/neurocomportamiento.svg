@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#0a0a0a"/>
+  <rect x="10" y="10" width="580" height="380" fill="none" stroke="#d32f2f" stroke-width="2" rx="8"/>
+  <text x="300" y="80" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="#ffb3b3">NEUROCOMPORTAMIENTO</text>
+  <text x="300" y="115" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#ffb3b3">MICHI</text>
+  <circle cx="300" cy="220" r="50" fill="none" stroke="#d32f2f" stroke-width="2"/>
+  <circle cx="270" cy="200" r="8" fill="#ffbfbf"/>
+  <circle cx="330" cy="200" r="8" fill="#ffbfbf"/>
+  <path d="M290 230 Q300 240 310 230" fill="none" stroke="#ffbfbf" stroke-width="2"/>
+  <text x="300" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#9ea3b1">Conducta • Estímulos • Adaptación</text>
+</svg>
