@@ -1,3 +1,5 @@
+const { generarRespuesta } = require('../services/respuestaService');
+
 const enviarReporte = (req, res) => {
     const { nombre, apellido, email, comentario } = req.body;
 
@@ -6,11 +8,14 @@ const enviarReporte = (req, res) => {
     console.log(`Correo: ${email}`);
     console.log(`Comentario: ${comentario}`);
 
-    res.send(`
-        <h1>Reporte enviado</h1>
-        <p>El incidente ha sido registrado y enviado al equipo de respuesta de NEKOBRELLA.</p>
-        <a href="/">Volver al panel</a>
-    `);
+    return res.send(generarRespuesta({
+        tipo: 'respuesta-ok',
+        titulo: 'Reporte enviado',
+        mensaje: 'El incidente ha sido registrado y enviado al equipo de respuesta de NEKOBRELLA.',
+        botonTexto: 'Volver al reporte',
+        botonLink: '/pages/reporte.html',
+        imagen: '/img/biohazard-report.svg'
+    }));
 };
 
 module.exports = {

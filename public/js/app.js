@@ -1,44 +1,52 @@
-// Cuando la página termina de cargar, recién se ejecuta el código.
-// Esto evita que JavaScript busque elementos que todavía no existen en el HTML.
+// Cuando el HTML ya cargó completo, se activan las funciones del sitio.
+// Esto evita errores por intentar buscar elementos antes de que existan.
 document.addEventListener('DOMContentLoaded', () => {
-    iniciarContadorIdea();
+    // Contador para el formulario de registro de propuesta experimental.
+    activarContadorTexto('idea', 'contador-idea', 20);
+
+    // Contador para el formulario de reporte de incidente biológico.
+    activarContadorTexto('comentario', 'contador-comentario', 10);
 });
 
-// Función encargada de activar el contador del formulario de registro.
-function iniciarContadorIdea() {
-    // Aquí se busca el textarea donde el usuario escribe la idea experimental.
-    const ideaTextarea = document.getElementById('idea');
+// Función reutilizable para contar caracteres en cualquier input o textarea.
+// Recibe:
+// idCampo: el id del input/textarea que se quiere contar.
+// idContador: el id del elemento donde se mostrará el contador.
+// minimo: cantidad mínima de caracteres esperada.
+function activarContadorTexto(idCampo, idContador, minimo) {
+    // Busca el campo de texto según el id recibido.
+    const campo = document.getElementById(idCampo);
 
-    // Aquí se busca el texto donde se mostrará el número de caracteres escritos.
-    const contadorIdea = document.getElementById('contador-idea');
+    // Busca el contador visual según el id recibido.
+    const contador = document.getElementById(idContador);
 
-    // Si esta página no tiene el textarea o el contador, la función se detiene.
-    // Esto permite usar el mismo app.js en varias páginas sin que dé error.
-    if (!ideaTextarea || !contadorIdea) {
+    // Si la página actual no tiene ese campo o ese contador, no hace nada.
+    // Esto permite usar el mismo app.js en todas las páginas sin que se rompa.
+    if (!campo || !contador) {
         return;
     }
 
-    // Esta función cuenta los caracteres y actualiza el mensaje visual.
+    // Esta función cuenta los caracteres y actualiza el mensaje del contador.
     const actualizarContador = () => {
-        const cantidad = ideaTextarea.value.length;
+        const cantidad = campo.value.length;
 
-        // Se muestra al usuario cuántos caracteres lleva escritos.
-        contadorIdea.textContent = `${cantidad} / 20 caracteres mínimos`;
+        // Muestra cuántos caracteres lleva escritos el usuario.
+        contador.textContent = `${cantidad} / ${minimo} caracteres mínimos`;
 
-        // Si llega a 20 o más, se marca como correcto.
-        if (cantidad >= 20) {
-            contadorIdea.classList.add('contador-ok');
-            contadorIdea.classList.remove('contador-error');
+        // Si cumple el mínimo, cambia el estilo a correcto.
+        if (cantidad >= minimo) {
+            contador.classList.add('contador-ok');
+            contador.classList.remove('contador-error');
         } else {
-            // Si tiene menos de 20, se mantiene como error visual.
-            contadorIdea.classList.add('contador-error');
-            contadorIdea.classList.remove('contador-ok');
+            // Si todavía no cumple, mantiene el estilo de advertencia.
+            contador.classList.add('contador-error');
+            contador.classList.remove('contador-ok');
         }
     };
 
-    // Cada vez que el usuario escribe o borra texto, se actualiza el contador.
-    ideaTextarea.addEventListener('input', actualizarContador);
+    // Cada vez que el usuario escribe o borra, se actualiza el contador.
+    campo.addEventListener('input', actualizarContador);
 
-    // Se ejecuta una vez al cargar la página para mostrar el estado inicial.
+    // Se ejecuta una vez al cargar para mostrar el contador desde 0.
     actualizarContador();
 }

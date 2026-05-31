@@ -39,12 +39,14 @@
             </div>
             <div class="reporte-visual">
                 <div class="reporte-imagen">
-                    <img src="../img/biohazard-report.svg" alt="Sistema de reporte de incidentes BIOHAZARD" class="reporte-img">
+                    <img src="../img/biohazard-report.svg" alt="Sistema de reporte de incidentes BIOHAZARD"
+                        class="reporte-img">
                 </div>
             </div>
             <div class="warning-box">
                 <p class="warning-title">BIOHAZARD REPORT SYSTEM</p>
-                <p>INCIDENTE CLASIFICADO: active la traza de contención y envíe el reporte bajo cadena de custodia segura.</p>
+                <p>INCIDENTE CLASIFICADO: active la traza de contención y envíe el reporte bajo cadena de custodia
+                    segura.</p>
             </div>
             <form action="/enviar" method="POST" class="formulario">
                 <div class="campo">
@@ -61,7 +63,11 @@
                 </div>
                 <div class="campo campo-completo">
                     <label for="comentario">Comentario</label>
-                    <textarea id="comentario" name="comentario" placeholder="Detalle el incidente biológico observado" required></textarea>
+                    <textarea id="comentario" name="comentario" placeholder="Detalle el incidente biológico observado"
+                        required></textarea>
+                    <p id="contador-comentario" class="contador-idea contador-error">
+                        0 / 10 caracteres mínimos
+                    </p>
                 </div>
                 <button type="submit" class="boton-envio boton-rojo">Enviar reporte</button>
             </form>
