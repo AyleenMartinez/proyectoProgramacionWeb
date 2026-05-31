@@ -1,49 +1,261 @@
 # NEKOBRELLA CORPORATION
 
 ## Nombre del proyecto
-NEKOBRELLA CORPORATION — Panel interno de investigación felina
+
+NEKOBRELLA CORPORATION — Sistema de monitoreo e investigación felina avanzada
 
 ## Descripción
-NEKOBRELLA CORPORATION es un proyecto de ejemplo que simula un sistema interno de monitoreo y gestión de incidentes biológicos felinos. Provee un panel oscuro orientado a personal autorizado con funcionalidades de login, envío de reportes y registro de propuestas experimentales.
+
+NEKOBRELLA CORPORATION es una aplicación web desarrollada con Node.js y Express que simula una organización especializada en investigación, contención y monitoreo de sujetos felinos experimentales.
+
+El sistema permite acceder a distintas áreas de la organización mediante una interfaz temática inspirada en laboratorios de investigación y protocolos de bioseguridad. Incluye autenticación básica, gestión de reportes biológicos, registro de propuestas experimentales y validaciones personalizadas implementadas mediante middlewares.
+
+## Objetivo académico
+
+Aplicar conceptos fundamentales de Programación Web utilizando Express, rutas, controladores, middlewares, servicios, manejo de formularios, validaciones, cookies y organización modular del proyecto.
+
+---
 
 ## Arquitectura del proyecto
-- `public/` - Recursos estáticos (HTML, CSS, JS, assets).
-- `routes/` - Definición de rutas Express que delegan la lógica a controladores.
-- `controllers/` - Handlers que procesan peticiones y generan respuestas.
-- `middlewares/` - Middlewares personalizados (logger, validaciones, etc.).
-- `services/` - Lógica reutilizable y puntos de integración (simulados sin DB).
-- `server.js` - Punto de arranque que monta middlewares y rutas.
-- `README.md` - Documentación del proyecto.
+
+### public/
+
+Contiene todos los recursos públicos del sitio.
+
+* `pages/` → páginas HTML del sistema.
+* `css/` → hojas de estilo.
+* `js/` → scripts del lado cliente.
+* `img/` → imágenes e ilustraciones SVG.
+
+### routes/
+
+Define las rutas HTTP y delega el procesamiento a los controladores correspondientes.
+
+### controllers/
+
+Contiene la lógica encargada de procesar formularios y generar respuestas.
+
+### middlewares/
+
+Incluye validaciones y componentes reutilizables ejecutados antes de llegar a los controladores.
+
+### services/
+
+Contiene lógica de negocio reutilizable y generación de respuestas HTML dinámicas.
+
+### server.js
+
+Punto de entrada de la aplicación Express.
+
+### README.md
+
+Documentación del proyecto.
+
+---
 
 ## Tecnologías utilizadas
-- Node.js
-- Express
-- cookie-parser
-- HTML, CSS
 
-## Instalación y ejecución
-1. Instalar dependencias:
-   ```bash
-   npm install
-   ```
-2. Ejecutar el servidor:
-   ```bash
-   npm start
-   ```
-3. Abrir en el navegador:
-   ```
-   http://localhost:3000
-   ```
+* Node.js
+* Express
+* cookie-parser
+* HTML5
+* CSS3
+* JavaScript
+* SVG
+
+---
+
+## Instalación
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar servidor:
+
+```bash
+npm start
+```
+
+Abrir en navegador:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Páginas disponibles
+
+### Inicio
+
+```text
+/pages/index.html
+```
+
+Panel principal de la organización.
+
+### Servicios
+
+```text
+/pages/servicios.html
+```
+
+Presentación de las áreas de investigación.
+
+### Sujetos
+
+```text
+/pages/sujetos.html
+```
+
+Monitoreo de sujetos experimentales.
+
+### Login
+
+```text
+/pages/login.html
+```
+
+Formulario de autenticación.
+
+### Reporte
+
+```text
+/pages/reporte.html
+```
+
+Registro de incidentes biológicos.
+
+### Registro
+
+```text
+/pages/registro.html
+```
+
+Ingreso de propuestas experimentales.
+
+---
 
 ## Rutas principales
-- `POST /login` — Acceso seguro (preserva `usuario` y `clave`).
-- `POST /enviar` — Envío de reportes (preserva `nombre`, `apellido`, `email`, `comentario`).
-- `POST /registrar-idea` — Registro de propuesta experimental (campos `nombre`, `departamento`, `idea`).
 
-## Notas importantes
-- La ruta `/registrar-idea` valida que si `departamento === "Informática"` la `idea` tenga al menos 20 caracteres; de lo contrario responde con el error: "Las propuestas técnicas requieren más detalle.".
-- Al registrar una propuesta exitosa se crea la cookie `tokenSesion` con valor `ST-777`.
-- No existe persistencia en base de datos; las propuestas se registran en consola mediante `services/ideaService.js`.
+### POST /login
 
-## Semana
-- Actividad Semana 8 - Programación Web
+Valida las credenciales ingresadas.
+
+Campos:
+
+* usuario
+* clave
+
+Genera respuestas de acceso autorizado o acceso denegado.
+
+---
+
+### POST /enviar
+
+Registra reportes biológicos.
+
+Campos:
+
+* nombre
+* apellido
+* email
+* comentario
+
+Incluye validación de longitud mínima para el comentario.
+
+---
+
+### POST /registrar-idea
+
+Registra propuestas experimentales.
+
+Campos:
+
+* nombre
+* departamento
+* idea
+
+Las propuestas válidas generan una cookie de sesión simulada.
+
+---
+
+## Middlewares implementados
+
+### validarIdea
+
+Verifica que las propuestas del departamento Informática tengan al menos 20 caracteres.
+
+Mensaje de error:
+
+```text
+Las propuestas técnicas requieren más detalle.
+```
+
+### validarReporte
+
+Verifica que el comentario del reporte tenga al menos 10 caracteres.
+
+Mensaje de error:
+
+```text
+El reporte biológico debe tener al menos 10 caracteres de descripción.
+```
+
+---
+
+## Cookies utilizadas
+
+### tokenSesion
+
+Cookie creada al registrar una propuesta correctamente.
+
+Valor:
+
+```text
+ST-777
+```
+
+Finalidad:
+
+* Simular persistencia de sesión.
+* Demostrar uso de cookies mediante cookie-parser.
+
+---
+
+## Funcionalidades implementadas
+
+* Servidor Express.
+* Organización MVC simplificada.
+* Formularios HTML.
+* Procesamiento de formularios mediante POST.
+* Middleware personalizado.
+* Validación de datos.
+* Generación dinámica de respuestas HTML.
+* Uso de cookies.
+* Contador visual de caracteres.
+* Navegación multipágina.
+* Separación modular de responsabilidades.
+* Recursos gráficos SVG personalizados.
+
+---
+
+## Consideraciones
+
+* No existe base de datos.
+* La información enviada se registra en consola mediante servicios simulados.
+* El proyecto tiene fines académicos y demostrativos.
+* Todas las validaciones principales se realizan en el servidor para evitar omisiones desde el cliente.
+
+---
+
+## Actividad académica
+
+Asignatura: Programación Web
+
+Actividad: Semana 8
+
+Proyecto: NEKOBRELLA CORPORATION

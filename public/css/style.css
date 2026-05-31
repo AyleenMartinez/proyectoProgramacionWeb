@@ -905,6 +905,167 @@ footer {
     color: #ff6b6b;
 }
 
+
+
+
+
+
+/* ===============================
+   AJUSTE VISUAL FINAL
+   Tema oscuro más suave
+   =============================== */
+
+:root {
+    --bg: #15151d;
+    --surface: #1d202b;
+    --surface-strong: #252936;
+    --text: #f7f7fa;
+    --muted: #c4c8d4;
+    --border: rgba(255, 255, 255, 0.14);
+    --panel: rgba(29, 32, 43, 0.96);
+}
+
+/* Fondo menos negro y más legible */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(180, 16, 16, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(90, 120, 120, 0.12), transparent 30%),
+        linear-gradient(180deg, #1a1b25 0%, #11121a 100%);
+}
+
+/* Baja un poco la oscuridad del grid de fondo */
+body::before {
+    opacity: 0.55;
+}
+
+/* Header menos pesado */
+.header-principal {
+    background: rgba(18, 19, 27, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Tarjetas y paneles más claros */
+.hero,
+.hero-panel,
+.monitor-card,
+.servicio-card,
+.sujeto-card,
+.bloque-formulario,
+.monitor-summary,
+.monitor-display,
+.respuesta-servidor {
+    background: rgba(29, 32, 43, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+/* Inputs más visibles */
+input,
+select,
+textarea {
+    background: #202330;
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9da3b5;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: rgba(255, 90, 90, 0.75);
+    box-shadow: 0 0 0 3px rgba(255, 60, 60, 0.16);
+}
+
+/* Textos secundarios más legibles */
+p,
+section p,
+.hero-copy p,
+.panel-copy p,
+.monitor-note,
+.monitor-data,
+.sujeto-lineas,
+.servicio-card p,
+.sujeto-card p {
+    color: #c4c8d4;
+}
+
+/* Títulos con más contraste */
+h1,
+h2,
+h3 {
+    color: #ffffff;
+}
+
+/* Botones más vivos */
+.boton-prioritario,
+.boton-envio,
+.boton-respuesta,
+button {
+    background: linear-gradient(135deg, #e23b3b, #b81414);
+    box-shadow: 0 0 18px rgba(226, 59, 59, 0.25);
+}
+
+/* Botón secundario más visible */
+.boton-secundario {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* Imágenes más integradas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.servicio-card img,
+.sujeto-card img,
+.hero img,
+.reporte-visual img {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 8px;
+}
+
+/* Evita que los SVG gigantes rompan la página */
+.reporte-imagen,
+.sujeto-img,
+.servicio-img,
+.hero-img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+}
+
+/* Formularios más respirables */
+.bloque-formulario {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contadores */
+.contador-idea {
+    color: #ff8a8a;
+}
+
+.contador-ok {
+    color: #73ff9d;
+}
+
+.contador-error {
+    color: #ff8a8a;
+}
+
+
+
+
+
+
 @media (max-width: 980px) {
     .hero,
     .cards-grid,

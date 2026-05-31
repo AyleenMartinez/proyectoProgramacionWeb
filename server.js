@@ -1,126 +1,104 @@
+// ===============================
+// NEKOBRELLA CORPORATION
+// Servidor principal con Express
+// ===============================
+
+// Importamos las dependencias principales del proyecto.
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
+// Importamos las rutas separadas del proyecto.
 const authRoutes = require('./routes/authRoutes');
 const reporteRoutes = require('./routes/reporteRoutes');
 const ideaRoutes = require('./routes/ideaRoutes');
+
+// Importamos el middleware que muestra las peticiones en consola.
 const logger = require('./middlewares/logger');
 
+// Creamos la aplicación de Express.
 const app = express();
-const PORT = 3000;
 
+// Render entrega un puerto automático.
+// Si no existe, usamos 3000 para trabajar en local.
+const PORT = process.env.PORT || 3000;
+
+// ===============================
+// Middlewares principales
+// ===============================
+
+// Permite leer datos enviados desde formularios HTML.
+app.use(express.urlencoded({ extended: true }));
+
+// Permite trabajar con cookies.
+app.use(cookieParser());
+
+// Muestra en consola cada petición realizada.
+app.use(logger);
+
+// Permite servir archivos estáticos desde la carpeta public.
+// Ejemplos:
+// /css/style.css
+// /js/app.js
+// /img/logo.png
+// /pages/index.html
 app.use(express.static(path.join(__dirname, 'public')));
+
+// ===============================
+// Ruta principal
+// ===============================
+
+// Cuando se entra a http://localhost:3000/
+// se muestra la página principal ubicada en public/pages/index.html.
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'pages', 'index.html'));
 });
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(logger);
 
+// ===============================
+// Rutas del sistema
+// ===============================
+
+// Rutas de login.
 app.use(authRoutes);
+
+// Rutas de reportes biológicos.
 app.use(reporteRoutes);
+
+// Rutas de registro de propuestas experimentales.
 app.use(ideaRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Servidor NEKOBRELLA CORPORATION activo en: http://localhost:${PORT}`);
-});
+// ===============================
+// Ruta para páginas no encontradas
+// ===============================
 
-
-/*
-// 1. Importar las bibliotecas necesarias
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const path = require('path');
-
-// 2. Crear la aplicación
-const app = express();
-
-// 3. Definir el puerto
-const PORT = 3000;
-
-// 4. Middlewares principales
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-
-// 5. Ruta para registrar ideas
-app.post('/registrar-idea', (req, res) => {
-    const { nombre, departamento, idea } = req.body;
-
-    // Validación solicitada en la clase:
-    // Si el departamento es Informática, la idea debe tener más de 20 caracteres.
-    if (departamento === 'Informática' && idea.length < 20) {
-        return res.status(400).send(`
-            <h1>Error</h1>
-            <p>Las propuestas técnicas requieren más detalle.</p>
-            <a href="/">Volver al inicio</a>
-        `);
-    }
-
-    // Crear cookie de seguimiento
-    res.cookie('tokenSesion', 'ST-777', {
-        maxAge: 600000,
-        httpOnly: true
-    });
-
-    res.send(`
-        <h1>Excelente trabajo, ${nombre}</h1>
-        <p>Tu idea para el departamento de ${departamento} ha sido capturada correctamente.</p>
-        <p><strong>Idea registrada:</strong> ${idea}</p>
-        <a href="/">Volver al inicio</a>
+app.use((req, res) => {
+    res.status(404).send(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>404 - NEKOBRELLA</title>
+            <link rel="stylesheet" href="/css/style.css">
+        </head>
+        <body class="respuesta-body">
+            <main class="respuesta-servidor respuesta-error">
+                <p class="etiqueta-alerta">NEKOBRELLA ERROR SYSTEM</p>
+                <h1>404 - Recurso no encontrado</h1>
+                <p>La ruta solicitada no existe dentro de NEKOBRELLA CORPORATION.</p>
+                <a href="/" class="boton-respuesta">Volver al inicio</a>
+            </main>
+        </body>
+        </html>
     `);
 });
 
-// 6. Ruta para formulario de contacto
-app.post('/enviar', (req, res) => {
-    const { nombre, apellido, email, comentario } = req.body;
+// ===============================
+// Inicio del servidor
+// ===============================
 
-    console.log(`Datos recibidos: ${nombre} ${apellido} - ${email}`);
-    console.log(`Comentario: ${comentario}`);
-
-    res.send(`
-        <h1>Gracias ${nombre}</h1>
-        <p>Tu comentario ha sido recibido en el servidor.</p>
-        <a href="/">Volver al inicio</a>
-    `);
-});
-
-// 7. Ruta para login con cookie
-app.post('/login', (req, res) => {
-    const { usuario, clave } = req.body;
-
-    if (req.cookies.miGalleta === 'true') {
-        return res.send(`
-            <h1>Bienvenido de nuevo, Admin</h1>
-            <p>Ya tenías una sesión iniciada gracias a tu cookie.</p>
-            <a href="/">Volver al inicio</a>
-        `);
-    }
-
-    if (usuario === 'admin' && clave === '1234') {
-        res.cookie('miGalleta', 'true', {
-            maxAge: 3600000,
-            httpOnly: true
-        });
-
-        res.send(`
-            <h1>Bienvenido por primera vez, Admin</h1>
-            <p>Se ha guardado una cookie en tu navegador.</p>
-            <a href="/">Volver al inicio</a>
-        `);
-    } else {
-        res.send(`
-            <h1>Error</h1>
-            <p>Usuario o contraseña incorrectos.</p>
-            <a href="/">Volver a intentar</a>
-        `);
-    }
-});
-
-// 8. Iniciar servidor
+// Este es el único app.listen del archivo.
+// No debe repetirse.
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en: http://localhost:${PORT}`);
-    console.log('Presiona Ctrl + C para detener el servidor.');
+    console.log(`Servidor NEKOBRELLA CORPORATION activo en puerto ${PORT}`);
 });
-*/
