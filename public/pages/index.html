@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEKOBRELLA CORPORATION</title>
+    <title>NEKOBRELLA CORPORATION - Panel Central</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -14,7 +14,7 @@
             <div class="brand-logo" aria-hidden="true">N</div>
             <div class="brand-texto">
                 <p class="brand-pretitle">NEKOBRELLA CORPORATION</p>
-                <h1>División de Investigación Felina Avanzada</h1>
+                <h1>Panel Central de Operaciones</h1>
             </div>
         </div>
 
@@ -31,124 +31,93 @@
     </header>
 
     <main class="contenedor-principal">
-        <section id="inicio" class="hero" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <span class="hero-tag">Sistema interno de monitoreo biológico felino</span>
-                <h2 id="hero-title">Acceso restringido al personal autorizado</h2>
-                <p>Bienvenido a NEKOBRELLA CORPORATION. Este panel es una plataforma de control para la supervisión de sujetos experimentales felinos y operaciones de contención.</p>
-                <div class="hero-actions">
-                    <a href="/pages/login.html" class="boton-prioritario">Ir a Login</a>
-                    <a href="/pages/reporte.html" class="boton-secundario">Ver reporte</a>
+        <!-- DASHBOARD HERO -->
+        <section id="dashboard" class="dashboard-hero" aria-labelledby="dashboard-title">
+            <div class="dashboard-info">
+                <div class="info-header">
+                    <h2 id="dashboard-title">Estado del Sistema</h2>
+                    <p>Monitoreo activo - 2 sujetos bajo observación</p>
                 </div>
-            </div>
-            <div class="hero-panel">
-                <div class="panel-tag">RESTRICTED</div>
-                <div class="hero-imagen">
-                    <img src="/img/laboratorio-felino.svg" alt="Panel de laboratorio felino NEKOBRELLA" class="hero-img">
-                </div>
-                <div class="monitor-card">
-                    <div class="monitor-head">
-                        <span>NEKO-BIOHAZARD STATUS</span>
-                        <span class="status-pill">CONTENCIÓN ACTIVA</span>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Sujetos Activos</span>
+                        <span class="metric-value">03</span>
                     </div>
-                    <div class="monitor-line">
-                        <div class="monitor-label">SUBJECT</div>
-                        <div class="monitor-value">M-13</div>
+                    <div class="metric-card">
+                        <span class="metric-label">Contención</span>
+                        <span class="metric-value">87%</span>
                     </div>
-                    <div class="monitor-graph">
-                        <div class="monitor-bar">
-                            <div class="monitor-bar-fill" style="width: 76%"></div>
-                        </div>
-                        <div class="monitor-note">INTEGRITY 76%</div>
+                    <div class="metric-card">
+                        <span class="metric-label">Fugas Detectadas</span>
+                        <span class="metric-value">01</span>
                     </div>
-                    <div class="monitor-data">
-                        <span>DATA CHAIN: ████ ██:34 UTC</span>
-                        <span>SCAN: 88% | ALERTAS: 02 | ACCESO: SELLO ROJO</span>
+                    <div class="metric-card">
+                        <span class="metric-label">Reportes Abiertos</span>
+                        <span class="metric-value">07</span>
                     </div>
                 </div>
-                <div class="panel-copy">
-                    <p><strong>Unidad:</strong> Investigación Genética y Contención</p>
-                    <p><strong>Estado:</strong> Operativo</p>
-                </div>
-                <div class="panel-alerta">
-                    <span>ALERTA</span>
-                    <p>Entorno con acceso controlado. Solo personal con credenciales válidas puede interactuar con este sistema.</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="panel-monitoreo" class="panel-monitoreo" aria-labelledby="panel-monitoreo-title">
-            <div class="section-header">
-                <p class="section-label">Panel de monitoreo</p>
-                <h2 id="panel-monitoreo-title">Dashboard interno</h2>
-                <p>Estado en tiempo real de los sujetos, alertas y archivos clasificados del sistema de contención.</p>
+                <div class="dashboard-actions">
+                    <a href="../pages/registro.html" class="boton-prioritario">Registrar propuesta</a>
+                    <a href="../pages/reporte.html" class="boton-secundario">Reportar incidente</a>
+                </div>
             </div>
-            <div class="monitor-grid">
-                <article class="monitor-summary monitor-summary-alerta">
-                    <p class="monitor-summary-label">Nivel global</p>
-                    <h3>Alerta roja</h3>
-                    <p>Contención reforzada. Activar el protocolo de respuesta inmediata.</p>
-                </article>
-                <article class="monitor-summary">
-                    <p class="monitor-summary-label">Sujetos activos</p>
-                    <h3>3 activos</h3>
-                    <p>Monitoreo constante en el sistema de vigilancia interna.</p>
-                </article>
-                <article class="monitor-summary">
-                    <p class="monitor-summary-label">Fugas</p>
-                    <h3>1 fuga parcial</h3>
-                    <p>El equipo de contención ya se encuentra en ruta de intervención.</p>
-                </article>
-                <article class="monitor-summary">
-                    <p class="monitor-summary-label">Reportes archivados</p>
-                    <h3>7 documentos</h3>
-                    <p>Incidentes clasificados almacenados en la base de datos segura.</p>
-                </article>
-            </div>
-            <div class="monitor-visual">
-                <div class="monitor-display">
-                    <div class="monitor-display-header">
-                        <span>BIOMETRIC MONITOR</span>
-                        <span class="monitor-display-badge">SISTEMA INTERNO</span>
+
+            <div class="dashboard-visual">
+                <div class="terminal-panel">
+                    <div class="terminal-header">
+                        <span>[NEKOBRELLA_SYSTEM]</span>
                     </div>
-                    <div class="monitor-data-row">
-                        <span>SUBJECTS ONLINE</span>
-                        <strong>3 / 4</strong>
-                    </div>
-                    <div class="monitor-data-row">
-                        <span>FUGAS DETECTADAS</span>
-                        <strong>1</strong>
-                    </div>
-                    <div class="monitor-data-row">
-                        <span>REPORTES PENDIENTES</span>
-                        <strong>7</strong>
-                    </div>
-                    <div class="monitor-status">
-                        <span>ESTADO</span>
-                        <strong>ALERTA ROJA</strong>
+                    <div class="terminal-content">
+                        <div class="terminal-line">status: <span class="term-active">active</span></div>
+                        <div class="terminal-line">protocol: <span class="term-value">feline_containment</span></div>
+                        <div class="terminal-line">security: <span class="term-alert">red</span></div>
+                        <div class="terminal-line">uptime: <span class="term-value">742h 34m</span></div>
+                        <div class="terminal-line">alert: <span class="term-alert">LEVEL_2</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- EVENTOS RECIENTES -->
+        <section id="eventos" class="recent-events" aria-labelledby="eventos-title">
+            <h2 id="eventos-title">Últimos Eventos</h2>
+            <div class="events-list">
+                <div class="event-item">
+                    <span class="event-time">14:32 UTC</span>
+                    <span class="event-text">M-13 detectado en pasillo norte · Nivel crítico</span>
+                </div>
+                <div class="event-item">
+                    <span class="event-time">12:15 UTC</span>
+                    <span class="event-text">M-07 reacciona a estímulos sonoros · Monitoreo reforzado</span>
+                </div>
+                <div class="event-item">
+                    <span class="event-time">09:47 UTC</span>
+                    <span class="event-text">M-01 consume muestra no autorizada · En revisión</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCESO RÁPIDO -->
         <section class="section-links" aria-labelledby="links-title">
-            <h2 id="links-title">Acceso rápido</h2>
+            <h2 id="links-title">Acceso Rápido</h2>
             <div class="quick-links">
                 <a href="../pages/servicios.html" class="quick-link-card">
                     <h3>Servicios</h3>
-                    <p>Capacidades internas de investigación</p>
+                    <p>Capacidades de investigación</p>
                 </a>
                 <a href="../pages/sujetos.html" class="quick-link-card">
                     <h3>Sujetos</h3>
-                    <p>Monitoreo de sujetos experimentales</p>
+                    <p>Monitoreo experimentales</p>
                 </a>
                 <a href="../pages/registro.html" class="quick-link-card">
                     <h3>Registro</h3>
                     <p>Propuestas experimentales</p>
                 </a>
-                <a href="../pages/reporte.html" class="quick-link-card">
-                    <h3>Reporte</h3>
-                    <p>Informes de investigación y contención</p>
+                <a href="../pages/login.html" class="quick-link-card">
+                    <h3>Acceso Seguro</h3>
+                    <p>Autenticación del personal</p>
                 </a>
             </div>
         </section>
@@ -158,7 +127,7 @@
         <p>NEKOBRELLA CORPORATION · División de Investigación Felina Avanzada · © 2026</p>
     </footer>
 
-    <script src="/js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>
