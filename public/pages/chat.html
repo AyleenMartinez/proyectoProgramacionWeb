@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEKOBRELLA CORPORATION - Chat</title>
+    <title>NEKOBRELLA CORPORATION - Comunicaciones</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -36,48 +36,72 @@
             <aside class="chat-sidebar">
                 <div class="chat-login chat-panel">
                     <div class="chat-header compact">
-                        <span class="hero-tag">BIOHAZARD COMM</span>
-                        <h2 id="chat-title">Sala de chat</h2>
-                    </div>
-                    <p class="chat-description">Comunícate con Bioingeniería, Contención e Incidentes desde un panel seguro y ágil.</p>
+                        <span class="hero-tag">CENTRO DE COMUNICACIONES</span>
 
-                    <div class="chat-join-panel">
-                        <div class="chat-field-row">
-                            <label for="usuario-nombre">Usuario</label>
-                            <input id="usuario-nombre" type="text" placeholder="Agente NEKOBRELLA" autocomplete="off">
-                        </div>
-                        <div class="chat-field-row">
-                            <label for="sala-seleccion">Sala</label>
-                            <select id="sala-seleccion">
-                                <option value="Bioingeniería">Bioingeniería</option>
-                                <option value="Contención">Contención</option>
-                                <option value="Incidentes">Incidentes</option>
-                            </select>
-                        </div>
-                        <button class="boton-envio boton-unirse-compact" id="boton-unirse">Unirse</button>
-                    </div>
-                </div>
+                        <h2 id="chat-title">Canal interno</h2>
 
-                <div class="chat-status chat-panel">
-                    <div class="panel-tag">Estado actual</div>
-                    <div class="chat-status-grid">
-                        <div>
-                            <span>Canal</span>
-                            <strong id="sala-activa" class="chat-sala-activa">No conectado</strong>
-                        </div>
-                        <div>
-                            <span>Usuario</span>
-                            <strong id="usuario-conectado" class="chat-sala-activa">Sin sesión</strong>
+                        <p class="chat-description">
+                            Comunicación segura entre agentes autorizados de NEKOBRELLA CORPORATION.
+                            Seleccione un canal para iniciar la transmisión.
+                        </p>
+
+                        <div class="chat-join-panel">
+                            <div class="chat-field-row">
+                                <label for="usuario-nombre">Agente</label>
+                                <input id="usuario-nombre" type="text" placeholder="Agente NEKOBRELLA"
+                                    autocomplete="off">
+                            </div>
+                            <div class="chat-field-row">
+                                <label for="sala-seleccion">Canal interno</label>
+                                <select id="sala-seleccion">
+                                    <option value="Bioingeniería">Bioingeniería</option>
+                                    <option value="Contención">Contención</option>
+                                    <option value="Incidentes">Incidentes</option>
+                                </select>
+                            </div>
+                            <button class="boton-envio boton-unirse-compact" id="boton-unirse">Conectarse</button>
                         </div>
                     </div>
-                </div>
+
+                    <div class="chat-status chat-panel">
+
+                        <div class="panel-tag">ESTADO DEL ENLACE</div>
+
+                        <div class="chat-status-grid">
+
+                            <div>
+                                <span>CANAL ACTIVO</span>
+                                <strong id="sala-activa" class="chat-sala-activa">
+                                    No conectado
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>AGENTE</span>
+                                <strong id="usuario-conectado" class="chat-sala-activa">
+                                    Sin sesión
+                                </strong>
+                            </div>
+
+                        </div>
+
+                        <button id="boton-abandonar" class="boton-secundario chat-abandonar">
+                            Abandonar canal
+                        </button>
+
+                    </div>
             </aside>
 
             <section class="chat-main chat-panel" aria-labelledby="chat-interface-title">
                 <div class="chat-toolbar">
                     <div>
-                        <h3 id="chat-interface-title">Interfaz de chat</h3>
-                        <p class="chat-subtitle">Mensajería en tiempo real por salas temáticas.</p>
+                        <h3 id="chat-interface-title">
+                            Centro de comunicaciones
+                        </h3>
+
+                        <p class="chat-subtitle">
+                            Mensajería segura para personal autorizado.
+                        </p>
                     </div>
                     <div class="chat-actions chat-emojis">
                         <button type="button" class="boton-secundario">😼</button>
@@ -97,11 +121,19 @@
 
                 <div class="chat-form">
                     <div class="chat-input-row">
-                        <input id="mensaje-texto" type="text" placeholder="Escribe un mensaje..." autocomplete="off">
+                        <input id="mensaje-texto" type="text" placeholder="Transmitir mensaje..." autocomplete="off">
                         <button class="boton-envio" id="boton-enviar">Enviar</button>
                     </div>
                     <div class="chat-file-row">
-                        <label for="archivo-adjunto" class="boton-secundario chat-attach-button">Adjuntar archivo</label>
+                        <label for="archivo-adjunto" class="chat-clip">
+
+                            📎
+
+                        </label>
+
+                        <span id="archivo-nombre" class="chat-archivo-nombre">
+
+                        </span>
                         <span id="archivo-nombre" class="chat-archivo-nombre"></span>
                     </div>
                     <input id="archivo-adjunto" type="file" aria-label="Adjuntar un archivo">

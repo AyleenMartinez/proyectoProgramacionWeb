@@ -417,6 +417,8 @@ buscarHistorialInput.addEventListener('input', () => {
     }
 });
 
+
+
 chatMensajes.addEventListener('scroll', () => {
     if (chatMensajes.scrollTop === 0) {
         cargarMasHistorial();
@@ -429,6 +431,25 @@ emojiButtons.forEach((boton) => {
         mensajeTextoInput.focus();
     });
 });
+
+/* ======================================
+   BOTÓN ABANDONAR CANAL
+====================================== */
+
+const botonAbandonar = document.getElementById('boton-abandonar');
+
+if (botonAbandonar) {
+    botonAbandonar.addEventListener('click', () => {
+
+        // Recarga la página para volver al estado inicial del chat.
+        // Es una forma simple de cerrar la sesión del chat y reconectar
+        // automáticamente cuando el usuario vuelva a ingresar.
+        location.reload();
+
+    });
+}
+
+
 
 // Inicia la interfaz en modo no conectado para evitar envíos antes de unirse.
 actualizarEstadoEnvio();
