@@ -137,6 +137,42 @@ Registro de incidentes biológicos.
 
 Ingreso de propuestas experimentales.
 
+### Chat
+
+```text
+/pages/chat.html
+```
+
+Página de chat en tiempo real con Socket.IO para comunicación interna entre salas temáticas.
+
+- Eventos implementados:
+  - `joinRoom`
+  - `chatMessage`
+  - `message`
+  - `disconnect`
+- Salas disponibles:
+  - Bioingeniería
+  - Contención
+  - Incidentes
+- Funcionalidades:
+  - mensajes en tiempo real
+  - salas temáticas
+  - emojis
+  - archivo simulado por nombre
+  - historial en localStorage
+  - búsqueda de mensajes
+  - notificación visual
+  - scroll/historial
+
+Las páginas modificadas para incluir la navegación al chat son:
+- `/pages/index.html`
+- `/pages/servicios.html`
+- `/pages/sujetos.html`
+- `/pages/login.html`
+- `/pages/reporte.html`
+- `/pages/registro.html`
+- `/pages/chat.html`
+
 ---
 
 ## Rutas principales

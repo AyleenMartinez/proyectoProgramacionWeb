@@ -7,6 +7,8 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const http = require('http');
+const { Server } = require('socket.io');
 
 // Importamos las rutas separadas del proyecto.
 const authRoutes = require('./routes/authRoutes');
@@ -16,8 +18,13 @@ const ideaRoutes = require('./routes/ideaRoutes');
 // Importamos el middleware que muestra las peticiones en consola.
 const logger = require('./middlewares/logger');
 
+// Importamos la configuración del chat Socket.IO.
+const configurarChat = require('./socket/chatSocket');
+
 // Creamos la aplicación de Express.
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 // Render entrega un puerto automático.
 // Si no existe, usamos 3000 para trabajar en local.
@@ -93,12 +100,13 @@ app.use((req, res) => {
     `);
 });
 
+// Configuramos el chat de Socket.IO.
+configurarChat(io);
+
 // ===============================
 // Inicio del servidor
 // ===============================
 
-// Este es el único app.listen del archivo.
-// No debe repetirse.
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Servidor NEKOBRELLA CORPORATION activo en puerto ${PORT}`);
 });
