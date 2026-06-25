@@ -139,7 +139,8 @@ function formatearFecha(isoString) {
     return `${horas}:${minutos}`;
 }
 
-// Normaliza los datos recibidos desde el servidor para el cliente.
+// Convierte el formato recibido desde el servidor a un objeto
+// uniforme para que el resto del cliente siempre trabaje igual.
 function normalizarMensajeServer(data) {
     if (data && typeof data.texto === 'object') {
         const payload = data.texto;
@@ -149,6 +150,7 @@ function normalizarMensajeServer(data) {
             texto: payload.mensaje || payload.texto || '',
             fecha: payload.fecha || data.fecha || new Date().toISOString(),
             archivo: payload.archivo || null,
+            imagen: payload.imagen || data.imagen || null,
             sala: payload.sala || salaActual || 'Desconocido',
         };
     }
@@ -159,6 +161,7 @@ function normalizarMensajeServer(data) {
         texto: data.texto || '',
         fecha: data.fecha || new Date().toISOString(),
         archivo: data.archivo || null,
+        imagen: data.imagen || null,
         sala: salaActual || 'Desconocido',
     };
 }
@@ -178,6 +181,16 @@ function crearElementoMensaje(mensaje) {
 
     mensajeElemento.appendChild(cabecera);
     mensajeElemento.appendChild(contenido);
+
+    // Si el mensaje contiene una imagen en Base64,
+    // se crea dinámicamente una etiqueta <img>.
+    if (mensaje.imagen) {
+        const imagen = document.createElement('img');
+        imagen.src = mensaje.imagen;
+        imagen.alt = mensaje.archivo || 'Imagen adjunta';
+        imagen.className = 'mensaje-imagen';
+        mensajeElemento.appendChild(imagen);
+    }
 
     if (mensaje.archivo) {
         const archivoEtiqueta = document.createElement('p');
@@ -258,6 +271,7 @@ function registrarMensajeLocal(mensaje) {
 }
 
 // Envía un mensaje al servidor usando Socket.IO.
+// Si hay imagen adjunta, la convierte a Base64 con FileReader.
 function enviarMensaje() {
     if (!salaActual || !usuarioActual) {
         return;
@@ -265,12 +279,30 @@ function enviarMensaje() {
 
     const texto = mensajeTextoInput.value.trim();
     const archivo = archivoAdjuntoInput.files[0];
-    const nombreArchivo = archivo ? archivo.name : null;
 
-    if (!texto && !nombreArchivo) {
+    if (!texto && !archivo) {
         return;
     }
 
+    // Si existe archivo y es imagen, se convierte a Base64.
+    if (archivo && archivo.type.startsWith('image/')) {
+        const lector = new FileReader();
+
+        lector.onload = function (event) {
+            enviarAlServidor(texto, archivo.name, event.target.result);
+        };
+
+        lector.readAsDataURL(archivo);
+        return;
+    }
+
+    // Si no hay archivo o no es imagen, se envía solo el nombre.
+    const nombreArchivo = archivo ? archivo.name : null;
+    enviarAlServidor(texto, nombreArchivo, null);
+}
+
+// Construye el objeto del mensaje y lo envía mediante Socket.IO.
+function enviarAlServidor(texto, nombreArchivo, imagenBase64) {
     const mensaje = {
         id: `${Date.now()}_${Math.random().toString(16).slice(2)}`,
         usuario: usuarioActual,
@@ -278,12 +310,15 @@ function enviarMensaje() {
         mensaje: texto,
         fecha: new Date().toISOString(),
         archivo: nombreArchivo,
+        imagen: imagenBase64,
     };
 
     socket.emit('chatMessage', mensaje);
     registrarMensajeLocal(mensaje);
+
     mensajeTextoInput.value = '';
     archivoAdjuntoInput.value = '';
+
     if (archivoNombreSpan) {
         archivoNombreSpan.textContent = '';
     }
